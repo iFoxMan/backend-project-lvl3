@@ -1,9 +1,9 @@
 {
-  "name": "just-run-js",
+  "name": "backend-project-lvl3",
   "version": "0.0.0",
-  "description": "just run your js code here",
+  "description": "backend project. level 3. hexlet.io",
   "bin": {
-    "just-run-js": "bin/run.js"
+    "page-loader": "bin/page-loader.js"
   },
   "engines": {
     "node": ">=14"
@@ -13,18 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iFoxMan/just-run-js.git"
+    "url": "git+https://github.com/iFoxMan/backend-project-lvl3.git"
   },
   "author": "Ivan Lisin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iFoxMan/just-run-js/issues"
+    "url": "https://github.com/iFoxMan/backend-project-lvl3/issues"
   },
   "type": "module",
   "jest": {
     "testEnvironment": "node"
   },
-  "homepage": "https://github.com/iFoxMan/just-run-js#readme",
+  "homepage": "https://github.com/iFoxMan/backend-project-lvl3#readme",
   "devDependencies": {
     "debug": "^4.1.1",
     "eslint": "^7.3.1",
