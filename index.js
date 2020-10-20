@@ -1,3 +1,3 @@
-import message from './src/message';
+import pageLoader from './src/page-loader';
 
-export default message;
+export default pageLoader;
