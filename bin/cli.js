@@ -12,10 +12,7 @@ program
   // .version(version)
   .option('--output [dirpath]', 'output directory', '.')
   .action((url) => {
-    try {
-      console.log(pageLoader(url, program.output));
-    } catch (err) {
-      console.log(err.message);
-    }
+    pageLoader(url, program.output)
+      .catch((err) => console.log(err.message));
   })
   .parse(process.argv);
