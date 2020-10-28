@@ -35,6 +35,8 @@
     "jest-cli": "^26.6.0"
   },
   "dependencies": {
-    "commander": "^6.1.0"
+    "axios": "^0.20.0",
+    "commander": "^6.1.0",
+    "nock": "^13.0.4"
   }
 }
