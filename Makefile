@@ -1,7 +1,10 @@
 install: install-deps
 
 run:
-	bin/run.js
+	mkdir ./temp
+	bin/cli.js --output ./temp https://www.google.com/
+	less ./temp/www-google-com.html
+	rm -r ./temp
 
 install-deps:
 	npm ci

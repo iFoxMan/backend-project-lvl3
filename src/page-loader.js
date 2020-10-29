@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { promises as fs } from 'fs';
 import path from 'path';
-import makeFileNameByUrl from './file';
+import makeFileNameByUrl from './file.js';
 
 const loadPage = (url, outDir) => axios.get(url)
   .then(({ data }) => {

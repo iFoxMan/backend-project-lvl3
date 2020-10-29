@@ -4,7 +4,7 @@
 // Error: Unknown file extension ".json" for /<path>/backend-project-lvl3/package.json
 import { program } from 'commander';
 // import { description, version } from '../package.json';
-import pageLoader from '../src/page-loader.js';
+import loadPage from '../src/page-loader.js';
 
 program
   .arguments('<url>')
@@ -12,7 +12,7 @@ program
   // .version(version)
   .option('--output [dirpath]', 'output directory', '.')
   .action((url) => {
-    pageLoader(url, program.output)
+    loadPage(url, program.output)
       .catch((err) => console.log(err.message));
   })
   .parse(process.argv);
