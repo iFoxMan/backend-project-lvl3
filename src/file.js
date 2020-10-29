@@ -12,8 +12,10 @@ const makeFileNameByUrl = (url) => {
   if (!isValidUrl(url)) {
     return null;
   }
-  const urlWithoutProtocol = url.replace(/.+:\/\//, '');
-  const basename = urlWithoutProtocol.replace(/[^a-zA-Z0-9]+/gm, '-');
+  const basename = url
+    .replace(/.+:\/\//, '')
+    .replace(/\/$/, '')
+    .replace(/[^a-zA-Z0-9]+\b/gm, '-');
   return `${basename}.html`;
 };
 
