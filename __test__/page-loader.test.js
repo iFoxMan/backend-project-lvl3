@@ -2,7 +2,7 @@ import os from 'os';
 import path from 'path';
 import { promises as fs } from 'fs';
 import nock from 'nock';
-import makeFileNameByUrl from '../src/file';
+import { makeFileNameByUrl } from '../src/name';
 import loadPage from '../src/page-loader';
 
 let data;
@@ -24,7 +24,7 @@ test('loadPage', async () => {
   nock(url).get('/').reply(200, data);
   await loadPage(url, tmpdir);
 
-  const filename = makeFileNameByUrl(url);
+  const filename = makeFileNameByUrl(url, 'html');
   const filepath = path.join(tmpdir, filename);
   const actual = await fs.readFile(filepath, 'utf-8');
   const expected = data;
