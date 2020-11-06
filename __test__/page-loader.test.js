@@ -18,10 +18,12 @@ beforeEach(async () => {
   tmpdir = await fs.mkdtemp(dirpath);
 });
 
-const url = 'https://www.google.com/';
+const hostname = 'https://ru.hexlet.io/';
+const pathname = '/courses';
+const url = new URL(pathname, hostname).href;
 
 test('loadPage', async () => {
-  nock(url).get('/').reply(200, data);
+  nock(hostname).get(pathname).reply(200, data);
   await loadPage(url, tmpdir);
 
   const basename = convertUrlToBaseName(url);
