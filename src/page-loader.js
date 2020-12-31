@@ -1,23 +1,27 @@
+// @ts-check
+
 import path from 'path';
 import { promises as fs } from 'fs';
 
-const dirname = 'ru-hexlet-io-courses_files';
+const getConfig = async (configName) => {
+  const configPath = path.join('__fixtures__', configName);
+  const data = await fs.readFile(configPath, 'utf8');
+  return JSON.parse(data);
+};
 
-const getFixturePath = (...paths) => path.join('__fixtures__', ...paths);
-
-const readFixtureFile = async (...paths) => {
-  const fixtureFilePath = getFixturePath(...paths);
+const readExpectedFile = async (filepath) => {
+  const fixtureFilePath = path.join('__fixtures__', 'expected-dir', filepath);
   return fs.readFile(fixtureFilePath, 'utf-8');
 };
 
 const simulatePageLoad = async (outDir) => {
-  const filepaths = JSON.parse(await readFixtureFile('filepaths.json'));
-  await fs.mkdir(path.join(outDir, dirname));
+  const srcdir = 'ru-hexlet-io-courses_files';
+  const { filepaths } = await getConfig('page-loader-config.json');
+  await fs.mkdir(path.join(outDir, srcdir));
   const promises = filepaths.map(async (filepath) => {
-    const srcpath = path.join('__fixtures__', 'expected-dir', filepath);
-    const data = await fs.readFile(srcpath, 'utf-8');
+    const data = await readExpectedFile(filepath);
     const distpath = path.join(outDir, filepath);
-    fs.writeFile(distpath, data);
+    await fs.writeFile(distpath, data);
   });
   return Promise.all(promises);
 };
